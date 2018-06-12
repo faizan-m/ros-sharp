@@ -337,4 +337,125 @@ namespace RosSharp.RosBridgeClient
     {
         public byte[] value;
     }
+
+// ADDED FOR PROJECT ARFUROS
+    public class LaserScan : Message
+    {
+        public StandardHeader header;
+        public float angle_min;
+        public float angle_max;
+        public float angle_increment;
+        public float time_increment;
+        public float scan_time;
+        public float range_min;
+        public float range_max;
+        public float[] ranges;
+        public float[] intensities;
+
+        public LaserScan()
+        {
+            header = new StandardHeader();
+            angle_min = 0;
+            angle_max = 0;
+            angle_increment = 0;
+            time_increment = 0;
+            scan_time = 0;
+            range_min = 0;
+            range_max = 0;
+            ranges = new float[0];
+            intensities = new float[0];
+        }
+    }
+
+    public class NavPath : Message
+    {
+        public StandardHeader header;
+        public GeometryPoseStamped[] poses;
+
+        public NavPath()
+        {
+            header = new StandardHeader();
+            poses = new GeometryPoseStamped[0];
+        } 
+    }
+
+    public class Person : Message
+    {
+        public string name;
+        public GeometryPoint position;
+        public GeometryPoint velocity;
+        public double reliability;
+        public string[] tagnames;
+        public string[] tags;
+
+        public Person()
+        {
+            name = "";
+            position = new GeometryPoint();
+            velocity = new GeometryPoint();
+            reliability = 0;
+            tagnames = new string[0];
+            tags = new string[0];
+        }
+    }
+
+    public class PersonStamped : Message
+    {
+        public StandardHeader header;
+        public Person person;
+
+        public PersonStamped()
+        {
+            header = new StandardHeader();
+            person = new Person();
+        }
+    }
+
+    public class People : Message
+    {
+        public StandardHeader header;
+        public Person[] people;
+
+        public People()
+        {
+            header = new StandardHeader();
+            people = new Person[0];
+        }
+    }
+
+    public class PositionMeasurement : Message
+    {
+        public StandardHeader header;
+        public string name;
+        public string object_id;
+        public GeometryPoint pos;
+        public double reliability;
+        public double[] covariance;
+        public byte initialization;
+
+        public PositionMeasurement()
+        {
+            header = new StandardHeader();
+            name = "";
+            object_id = "";
+            pos = new GeometryPoint();
+            reliability = 0;
+            covariance = new double[9];
+            initialization = 0;
+        }
+    }
+
+    public class PositionMeasurementArray : Message
+    {
+        public StandardHeader header;
+        public PositionMeasurement[] people;
+        public float[] cooccurence;
+
+        public PositionMeasurementArray()
+        {
+            header = new StandardHeader();
+            people = new PositionMeasurement[0];
+            cooccurence = new float[0];
+        }
+    }
 }

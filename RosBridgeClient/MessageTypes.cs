@@ -43,7 +43,17 @@ namespace RosSharp.RosBridgeClient
             { "sensor_msgs/CompressedImage", typeof(SensorCompressedImage) },
             { "std_msgs/Time", typeof(StandardTime)    },
             { "nav_msgs/MapMetaData", typeof(NavigationMapMetaData) },
-            { "nav_msgs/OccupancyGrid", typeof(NavigationOccupancyGrid)}
+            { "nav_msgs/OccupancyGrid", typeof(NavigationOccupancyGrid) },
+
+// ADDED FOR PROJECT ARFUROS
+            { "sensor_msgs/LaserScan", typeof(LaserScan) },
+            { "nav_msgs/Path", typeof(NavPath) },
+            { "people_msgs/Person", typeof(Person) },
+            { "people_msgs/PersonStamped", typeof(PersonStamped) },
+            { "people_msgs/People", typeof(People) },
+            { "people_msgs/PositionMeasurement", typeof(PositionMeasurement) },
+            { "people_msgs/PositionMeasurementArray", typeof(PositionMeasurementArray) }
+
         };
         public static string RosMessageType(Type messageType)
         {
